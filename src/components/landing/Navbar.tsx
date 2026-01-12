@@ -5,6 +5,7 @@ import logo from '@/assets/madmak-logo.png';
 
 const navLinks = [
   { label: 'الرئيسية', href: '#hero' },
+  { label: 'العروض', href: '#offers' },
   { label: 'من نحن', href: '#about' },
   { label: 'خدماتنا', href: '#services' },
   { label: 'منتجاتنا', href: '#products' },
@@ -56,14 +57,24 @@ const Navbar = () => {
           </ul>
 
           {/* CTA Button */}
-          <a
-            href="https://wa.me/966570780836"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 glow-gold-sm"
-          >
-            استشارة مجانية
-          </a>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://madmakvi.com/offers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-secondary text-secondary-foreground px-4 py-2.5 rounded-lg font-semibold hover:bg-secondary/80 transition-all duration-300 border border-border"
+            >
+              العروض
+            </a>
+            <a
+              href="https://wa.me/966570780836"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 glow-gold-sm"
+            >
+              استشارة مجانية
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -96,6 +107,16 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://madmakvi.com/offers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center bg-secondary text-secondary-foreground px-5 py-3 rounded-lg font-semibold border border-border"
+                >
+                  العروض
+                </a>
+              </li>
               <li>
                 <a
                   href="https://wa.me/966570780836"

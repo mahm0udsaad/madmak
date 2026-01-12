@@ -30,21 +30,27 @@ const categories = [
     title: 'سويشات الشبكة',
     description: 'سويشات عادية و POE لتشغيل الكاميرات وأجهزة الشبكة',
     link: 'https://madmakvi.com/category/lRpgNV',
-    image: 'https://cdn.salla.sa/nEvboN/9PWwYsMaO2ijYkKp0j3FPfNgNCPGfoAav2A7O7nr.png',
+    // Real category image (avoid logo placeholders)
+    image:
+      '/network-poe-switch-data-center-infrastructure-ethe.jpg',
   },
   {
     icon: Radio,
     title: 'هوائيات وأنتينات',
     description: 'أنتينات 5G و Point to Point و Indoor لتقوية الإشارة',
-    link: 'https://madmakvi.com/category/DOQrej',
-    image: 'https://cdn.salla.sa/nEvboN/9PWwYsMaO2ijYkKp0j3FPfNgNCPGfoAav2A7O7nr.png',
+    // TODO: replace with the exact category id once confirmed in the store
+    link: 'https://madmakvi.com',
+    image:
+      'https://images.unsplash.com/photo-1590935217281-8f102120d683?auto=format&fit=crop&w=1200&q=80',
   },
   {
     icon: Globe,
     title: 'مقويات الإنترنت والفايبر',
     description: 'حلول متكاملة لتقوية وتوزيع الإنترنت',
-    link: 'https://madmakvi.com/category/zEpRXo',
-    image: 'https://cdn.salla.sa/nEvboN/9PWwYsMaO2ijYkKp0j3FPfNgNCPGfoAav2A7O7nr.png',
+    // TODO: replace with the exact category id once confirmed in the store
+    link: 'https://madmakvi.com',
+    image:
+      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80',
   },
 ];
 
@@ -86,11 +92,18 @@ const ProductsSection = () => {
               className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
             >
               {/* Image */}
-              <div className="h-48 bg-gradient-to-br from-secondary to-navy-light flex items-center justify-center overflow-hidden">
+              <div className="h-56 bg-gradient-to-br from-secondary to-navy-light flex items-center justify-center overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
                 <img
                   src={category.image}
                   alt={category.title}
-                  className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 

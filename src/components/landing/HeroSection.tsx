@@ -8,6 +8,11 @@ const features = [
   { icon: Shield, label: 'حماية متكاملة' },
 ];
 
+const heroImage = {
+  src: 'https://cdn.salla.sa/nEvboN/7da5fc37-a2a6-4066-99b4-1db86de4bded-500x500-fuicWT7f4jaEhLupgLkcmp1oeAINAwhWSEeNzTe8.png',
+  alt: 'أنظمة كاميرات مراقبة احترافية',
+};
+
 const HeroSection = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
@@ -17,7 +22,9 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Text */}
+          <div className="text-center lg:text-right">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +53,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
           >
             مؤسسة سعودية متخصصة في أنظمة المراقبة الأمنية، نعمل على توفير حلول موثوقة ترفع مستوى الأمان وتتماشى مع المعايير المعتمدة في المملكة
           </motion.p>
@@ -56,7 +63,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
           >
             <a
               href="https://wa.me/966570780836"
@@ -81,7 +88,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto lg:mx-0"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -95,6 +102,34 @@ const HeroSection = () => {
                 <span className="text-sm font-medium text-foreground/80">{feature.label}</span>
               </motion.div>
             ))}
+          </motion.div>
+          </div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative max-w-xl mx-auto w-full"
+          >
+            <div className="relative rounded-3xl overflow-hidden border border-border bg-card/40 shadow-xl shadow-primary/10">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent z-10" />
+              <img
+                src={heroImage.src}
+                alt={heroImage.alt}
+                className="w-full h-[320px] sm:h-[380px] lg:h-[520px] object-cover"
+                loading="eager"
+                decoding="async"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = '/placeholder.svg';
+                }}
+              />
+              <div className="absolute bottom-5 right-5 z-20 bg-card/70 backdrop-blur-md border border-border/60 rounded-2xl px-4 py-3">
+                <p className="text-sm text-foreground/90 font-semibold">توريد • تركيب • دعم فني</p>
+                <p className="text-xs text-muted-foreground mt-1">حلول جاهزة للمنازل والشركات</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

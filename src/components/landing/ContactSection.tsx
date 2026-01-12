@@ -118,7 +118,7 @@ const ContactSection = () => {
                   className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all duration-300 glow-gold-sm"
                 >
                   <Send className="w-5 h-5" />
-                  <span>إرسال عبر واتساب</span>
+                  <span>إرسال</span>
                 </button>
               </div>
             </form>
