@@ -48,7 +48,7 @@ export default async function handler(
 
     const result = await resend.emails.send({
       from: 'website@madmakvi.online',
-      to: '101mahm0udsaad@gmail.com',
+      to: 'ahmedhazaaqasem@gmail.com',
       subject: 'Website message',
       html: emailContent,
     });
