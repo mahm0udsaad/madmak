@@ -1,0 +1,24 @@
+{
+  "name": "مادماك فيچن madmak vision",
+  "short_name": "مادماك فيچن",
+  "description": "مؤسسة سعودية متخصصة في أنظمة المراقبة الأمنية",
+  "icons": [
+    {
+      "src": "/fav.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1e3a5f",
+  "background_color": "#0a1628",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl"
+}

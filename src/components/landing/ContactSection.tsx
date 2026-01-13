@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Phone, Mail, MessageCircle, Send, MapPin } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Send, MapPin, Loader2 } from 'lucide-react';
+import { toast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -12,15 +13,49 @@ const ContactSection = () => {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create WhatsApp message
-    const message = `مرحباً، أنا ${formData.name}%0A%0Aرقم الجوال: ${formData.phone}%0Aالبريد الإلكتروني: ${formData.email}%0A%0Aالرسالة:%0A${formData.message}`;
-    
-    // Open WhatsApp with the message
-    window.open(`https://wa.me/966570780836?text=${message}`, '_blank');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: 'تم الإرسال بنجاح',
+          description: 'شكراً لتواصلك معنا. سنرد عليك قريباً.',
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          message: '',
+        });
+      } else {
+        throw new Error(result.error || 'Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: 'خطأ في الإرسال',
+        description: 'حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى أو التواصل عبر واتساب.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -115,10 +150,20 @@ const ContactSection = () => {
                 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all duration-300 glow-gold-sm"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all duration-300 glow-gold-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-5 h-5" />
-                  <span>إرسال</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>جاري الإرسال...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      <span>إرسال</span>
+                    </>
+                  )}
                 </button>
               </div>
             </form>
