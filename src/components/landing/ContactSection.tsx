@@ -57,7 +57,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <form onSubmit={handleSubmit} className="bg-card p-8 rounded-2xl border border-border">
-              <h3 className="text-2xl font-bold mb-6">أرسل لنا رسالة</h3>
+              <h3 className="text-2xl font-bold mb-6">طلب سعر</h3>
               
               <div className="space-y-5">
                 <div>

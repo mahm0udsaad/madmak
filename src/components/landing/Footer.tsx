@@ -13,8 +13,8 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="مدماك" className="h-12 w-12 object-contain" />
-              <span className="text-2xl font-bold text-primary">مدماك</span>
+              <img src={logo} alt="مادماك فيچن madmak vision" className="h-12 w-12 object-contain" />
+              <span className="text-2xl font-bold text-primary">مادماك فيچن</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
               مؤسسة سعودية متخصصة في أنظمة المراقبة الأمنية، نوفر حلول موثوقة بجودة عالية وأسعار تنافسية.
@@ -60,7 +60,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} مدماك. جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} مادماك فيچن madmak vision. جميع الحقوق محفوظة.
           </p>
           
           <button

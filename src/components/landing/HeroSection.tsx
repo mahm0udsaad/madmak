@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Shield, Camera, Wifi, MonitorSpeaker } from 'lucide-react';
+import heroBg from '@/assets/hero-bg.png';
 
 const features = [
   { icon: Camera, label: 'كاميرات مراقبة' },
@@ -17,7 +18,12 @@ const HeroSection = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-light/50 to-navy" />
+      <div
+        className="absolute inset-0 hidden md:block bg-cover bg-center opacity-30"
+        style={{ backgroundImage: `url(${heroBg})` }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy-light/40 to-navy" />
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       
@@ -114,17 +120,7 @@ const HeroSection = () => {
           >
             <div className="relative rounded-3xl overflow-hidden border border-border bg-card/40 shadow-xl shadow-primary/10">
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent z-10" />
-              <img
-                src={heroImage.src}
-                alt={heroImage.alt}
-                className="w-full h-[320px] sm:h-[380px] lg:h-[520px] object-cover"
-                loading="eager"
-                decoding="async"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  e.currentTarget.src = '/placeholder.svg';
-                }}
-              />
+              
               <div className="absolute bottom-5 right-5 z-20 bg-card/70 backdrop-blur-md border border-border/60 rounded-2xl px-4 py-3">
                 <p className="text-sm text-foreground/90 font-semibold">توريد • تركيب • دعم فني</p>
                 <p className="text-xs text-muted-foreground mt-1">حلول جاهزة للمنازل والشركات</p>

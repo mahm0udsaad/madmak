@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
           <span className="text-primary font-semibold text-lg mb-4 block">لماذا نحن</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-foreground">لماذا تختار</span>
-            <span className="text-gradient"> مدماك؟</span>
+            <span className="text-gradient"> مادماك فيچن؟</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             نلتزم بتقديم أفضل الخدمات والمنتجات لعملائنا الكرام

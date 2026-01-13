@@ -38,8 +38,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-3">
-            <img src={logo} alt="مدماك" className="h-12 w-12 object-contain" />
-            <span className="text-2xl font-bold text-primary">مدماك</span>
+            <img src={logo} alt="مادماك فيچن madmak vision" className="h-12 w-12 object-contain" />
+            <span className="text-2xl font-bold text-primary">مادماك فيچن</span>
           </a>
 
           {/* Desktop Navigation */}
