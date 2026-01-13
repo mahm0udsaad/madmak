@@ -111,7 +111,7 @@ const HeroSection = () => {
           </motion.div>
           </div>
 
-          {/* Image */}
+          {/* Video */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,9 +119,20 @@ const HeroSection = () => {
             className="relative max-w-xl mx-auto w-full"
           >
             <div className="relative rounded-3xl overflow-hidden border border-border bg-card/40 shadow-xl shadow-primary/10">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-cover"
+                aria-label="أنظمة كاميرات مراقبة احترافية"
+              >
+                <source src="/video/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent z-10" />
               
-              <div className="absolute bottom-5 right-5 z-20 bg-card/70 backdrop-blur-md border border-border/60 rounded-2xl px-4 py-3">
+              <div className="absolute bottom-[0.25rem] right-[0.25rem] z-20 bg-card/70 backdrop-blur-md border border-border/60 rounded-2xl px-4 py-3">
                 <p className="text-sm text-foreground/90 font-semibold">توريد • تركيب • دعم فني</p>
                 <p className="text-xs text-muted-foreground mt-1">حلول جاهزة للمنازل والشركات</p>
               </div>
